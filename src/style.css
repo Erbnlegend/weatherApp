@@ -1,0 +1,83 @@
+body {
+  position: fixed;
+  z-index: -2;
+  margin: 0;
+  background: url('./assets/rye-jessen-GLOJ4NRWAyU-unsplash.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.background-container {
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.562);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  padding: 75px;
+  font-weight: bold;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.temp {
+  font-size: 4em;
+  text-align: center;
+}
+.location {
+  text-align: center;
+  font-size: 2em;
+}
+.icon {
+  height: 150px;
+  width: 150px;
+}
+.conditions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 1em;
+  width: 100%;
+}
+
+form {
+  display: flex;
+}
+#search {
+  width: 25%;
+  margin: 50px auto;
+}
+input[type='text'] {
+  padding: 5px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.685);
+  border: 0;
+}
+input[type='submit'] {
+  border-radius: 100%;
+  padding: 8px;
+  border: 0;
+  margin-left: 10px;
+  font-weight: bold;
+}
+input:focus {
+  outline: none;
+}
+#error {
+  color: white;
+  font-weight: bold
+}
