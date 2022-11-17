@@ -1,37 +1,37 @@
-import { createIcons, CloudMoonRain, createElement } from 'lucide'
-import { DOMElements } from '../dom'
+import { renderHTML } from '../dom'
+import { weatherIcons } from '../requests/weatherIcons'
 
-createIcons({
-  icons: {
-    CloudMoonRain
-  }
-})
-const icon = createElement(CloudMoonRain)
-icon.setAttribute('class', 'icon')
-function weatherTemplate (weatherData) {
+async function weatherTemplate (weatherData, state) {
   console.log(weatherData)
-  const renderTemplate = `<div class='background-container'>
+  // Fetch Icons to resolve cookie issue
+  const icon = await weatherIcons(weatherData)
+  const renderTemplateTop = `<div class='background-container'>
     <div class='container'>
       <div class='wrapper'>
-        <div class='location'>${weatherData.name}, ${weatherData.sys.country}</div>
-        <div class='temp'>
-          <div>${weatherData.main.temp}</div>
+        <div class='location'>${weatherData.name}, ${state} ${weatherData.sys.country}</div>
+        <div>
+          <div class='temp'>${Math.ceil(weatherData.main.temp)}</div>
+          <div class='small'>Feels like ${Math.ceil(weatherData.main.feels_like)}</div>
         </div>
         <div class='conditions'>
-          <div class='skyCondition'>${weatherData.weather[0].main}<br>${weatherData.weather[0].description}</div>
+          <div class='skyCondition'>${weatherData.weather[0].main}</div>
         </div>
       </div>
-      <div class='weatherIcon'></div>
+      <div class='weatherIcon'>
+        <img src='${icon}' alt=''>
+      </div>
     </div>
-  </div>`
+    <div id='moreInfo'>
+      <div class='minMaxTemp'>High<span>${Math.ceil(weatherData.main.temp_max)}</span></div>
+      <div class='minMaxTemp'>Low<span>${Math.ceil(weatherData.main.temp_min)}</span></div>
+      <div id='humidity'>
+        <div data-humidity='${weatherData.main.humidity}'>${weatherData.main.humidity}</div>
+      </div>
+    </div>
+  </div>
+`
 
-  DOMElements.enteredCity.setAttribute('placeholder', weatherData.name)
-  DOMElements.enteredCountry.setAttribute('placeholder', weatherData.sys.country)
-  const render = document.getElementById('appendWeatherData')
-  render.innerHTML = renderTemplate
-
-  const weatherIcon = document.querySelector('.weatherIcon')
-  weatherIcon.append(icon)
+  renderHTML(weatherData, renderTemplateTop)
 }
 
 export { weatherTemplate }

@@ -1,4 +1,4 @@
-import { getWeatherData } from './weatherAPI'
+import { getWeatherData } from './requests/weatherAPI'
 import { DOMElements } from './dom'
 
 function userLocation () {
@@ -9,12 +9,13 @@ function userLocation () {
   }
 }
 
-function showUserPosition (position) {
-  console.log(`Latitude: ${position.coords.latitude} Longitude: ${position.coords.longitude}`)
-  const latitude = position.coords.latitude
-  const longitude = position.coords.longitude
-  const units = 'imperial'
-  getWeatherData(latitude, longitude, units)
+function showUserPosition (showUserPosition) {
+  console.log(`Latitude: ${showUserPosition.coords.latitude} Longitude: ${showUserPosition.coords.longitude}`)
+  const latitude = showUserPosition.coords.latitude
+  const longitude = showUserPosition.coords.longitude
+  const position = { lat: latitude, lon: longitude }
+  const state = ''
+  getWeatherData(position, state)
 }
 
 export { userLocation }
