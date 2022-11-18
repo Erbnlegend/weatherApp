@@ -1,4 +1,3 @@
-import { set } from 'date-fns'
 import { getWeatherData } from './requests/weatherAPI'
 
 const DOMElements = {
