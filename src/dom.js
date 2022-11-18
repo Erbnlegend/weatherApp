@@ -106,21 +106,21 @@ function updateBackground (temp, condition) {
 }
 
 const conditionsMatch = [
-  { main: 'Clear', url: 'ritam-baishya-ROVBDer29PQ-unsplash.jpg' },
-  { main: 'Clouds', url: 'billy-huynh-v9bnfMCyKbg-unsplash.jpg' },
-  { main: 'Thunderstorm', url: 'johannes-plenio-ESL1rIs9j48-unsplash.jpg' },
-  { main: 'Drizzle', url: 'filip-zrnzevic-_EMkxLdko9k-unsplash.jpg' },
-  { main: 'Rain', url: 'roman-synkevych-qPvBmSvmohs-unsplash.jpg' },
-  { main: 'Snow', url: 'rye-jessen-GLOJ4NRWAyU-unsplash.jpg' },
-  { main: 'Mist', url: 'annie-spratt-7CME6Wlgrdk-unsplash.jpg' },
-  { main: 'Smoke', url: 'corina-rainer-jZc5eTXnYLU-unsplash.jpg' },
-  { main: 'Haze', url: 'alex-gindin-ifpBOcQlhoY-unsplash.jpg' },
-  { main: 'Dust', url: 'jessica-knowlden-Alkq_ht0GVk-unsplash.jpg' },
-  { main: 'Fog', url: 'paul-pastourmatzis-KT3WlrL_bsg-unsplash.jpg' },
-  { main: 'Sand', url: 'wolfgang-hasselmann-Fd01B6nNPbo-unsplash.jpg' },
-  { main: 'Ash', url: 'william-krause-wPsDfkS_noU-unsplash.jpg' },
-  { main: 'Squall', url: 'khamkeo-vilaysing-WtwSsqwYlA0-unsplash.jpg' },
-  { main: 'Tornado', url: 'nikolas-noonan-fQM8cbGY6iQ-unsplash.jpg' }
+  { main: 'Clear', url: 'imgs/ritam-baishya-ROVBDer29PQ-unsplash.jpg' },
+  { main: 'Clouds', url: 'imgs/billy-huynh-v9bnfMCyKbg-unsplash.jpg' },
+  { main: 'Thunderstorm', url: 'imgs/johannes-plenio-ESL1rIs9j48-unsplash.jpg' },
+  { main: 'Drizzle', url: 'imgs/filip-zrnzevic-_EMkxLdko9k-unsplash.jpg' },
+  { main: 'Rain', url: 'imgs/roman-synkevych-qPvBmSvmohs-unsplash.jpg' },
+  { main: 'Snow', url: 'imgs/rye-jessen-GLOJ4NRWAyU-unsplash.jpg' },
+  { main: 'Mist', url: 'imgs/annie-spratt-7CME6Wlgrdk-unsplash.jpg' },
+  { main: 'Smoke', url: 'imgs/corina-rainer-jZc5eTXnYLU-unsplash.jpg' },
+  { main: 'Haze', url: 'imgs/alex-gindin-ifpBOcQlhoY-unsplash.jpg' },
+  { main: 'Dust', url: 'imgs/jessica-knowlden-Alkq_ht0GVk-unsplash.jpg' },
+  { main: 'Fog', url: 'imgs/paul-pastourmatzis-KT3WlrL_bsg-unsplash.jpg' },
+  { main: 'Sand', url: 'imgs/wolfgang-hasselmann-Fd01B6nNPbo-unsplash.jpg' },
+  { main: 'Ash', url: 'imgs/william-krause-wPsDfkS_noU-unsplash.jpg' },
+  { main: 'Squall', url: 'imgs/khamkeo-vilaysing-WtwSsqwYlA0-unsplash.jpg' },
+  { main: 'Tornado', url: 'imgs/nikolas-noonan-fQM8cbGY6iQ-unsplash.jpg' }
 ]
 
 // Submit Search Form
