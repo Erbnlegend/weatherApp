@@ -103,7 +103,6 @@ function updateBackground (temp, condition) {
   const background = document.querySelector('.background')
   const index = conditionsMatch.findIndex(x => x.main === condition)
   background.style.backgroundImage = `url(${conditionsMatch[index].url})`
-  console.log(conditionsMatch[index].url)
 }
 
 const conditionsMatch = [
