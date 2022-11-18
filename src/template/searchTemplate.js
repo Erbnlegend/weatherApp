@@ -9,6 +9,7 @@ async function searchTemplate (geoData) {
     </div>`
 
     const createDiv = document.createElement('div')
+    createDiv.setAttribute('class', 'cards')
     renderTemplate.trim()
     createDiv.innerHTML = renderTemplate
     DOMElements.render.append(createDiv)
