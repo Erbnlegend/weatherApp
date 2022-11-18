@@ -35,6 +35,7 @@ function renderHTML (weatherData, template) {
   const render = document.getElementById('appendWeatherData')
   render.innerHTML = template
 }
+
 function renderIcons (thermo, sunSet, sunRise, droplets, wind, wind2, sun) {
   const highLow = document.querySelector('.thermo')
   const humidity = document.querySelector('.droplets')
@@ -54,7 +55,7 @@ function renderIcons (thermo, sunSet, sunRise, droplets, wind, wind2, sun) {
 }
 function renderHumidity (humidity) {
   const percent = document.getElementById('humidityPercent')
-
+  // Simple Width Transition set in
   for (let i = 0; i <= humidity; i++) {
     setTimeout(() => {
       percent.style.width = `${i}%`
@@ -70,6 +71,11 @@ function renderSun (riseTime, setTime, currentTime) {
     barIcon.style.color = '#ff4500'
   }
   for (let i = riseTime; i <= currentTime; i++) {
+    if (currentTime < riseTime) {
+      bar.style.width = '0%'
+      barIcon.style.left = '0'
+      return
+    }
     baseLine++
     riseTime++
     if (currentTime >= setTime) {
@@ -80,11 +86,6 @@ function renderSun (riseTime, setTime, currentTime) {
           bar.style.backgroundColor = '#ffffff'
         }, 50)
       }
-      return
-    }
-    if (currentTime < riseTime) {
-      bar.style.width = '0%'
-      barIcon.style.left = '0'
       return
     }
     const percent = (baseLine / difference) * 100
@@ -101,27 +102,26 @@ function renderSun (riseTime, setTime, currentTime) {
 
 function updateBackground (temp, condition) {
   const background = document.querySelector('.background')
-  const index = conditionsMatch.findIndex(x => x.main === condition)
-  background.style.backgroundImage = `url(${conditionsMatch[index].url})`
+  background.style.backgroundImage = `url(${conditionsMatch[condition]})`
 }
 
-const conditionsMatch = [
-  { main: 'Clear', url: 'imgs/ritam-baishya-ROVBDer29PQ-unsplash.jpg' },
-  { main: 'Clouds', url: 'imgs/billy-huynh-v9bnfMCyKbg-unsplash.jpg' },
-  { main: 'Thunderstorm', url: 'imgs/johannes-plenio-ESL1rIs9j48-unsplash.jpg' },
-  { main: 'Drizzle', url: 'imgs/filip-zrnzevic-_EMkxLdko9k-unsplash.jpg' },
-  { main: 'Rain', url: 'imgs/roman-synkevych-qPvBmSvmohs-unsplash.jpg' },
-  { main: 'Snow', url: 'imgs/rye-jessen-GLOJ4NRWAyU-unsplash.jpg' },
-  { main: 'Mist', url: 'imgs/annie-spratt-7CME6Wlgrdk-unsplash.jpg' },
-  { main: 'Smoke', url: 'imgs/corina-rainer-jZc5eTXnYLU-unsplash.jpg' },
-  { main: 'Haze', url: 'imgs/alex-gindin-ifpBOcQlhoY-unsplash.jpg' },
-  { main: 'Dust', url: 'imgs/jessica-knowlden-Alkq_ht0GVk-unsplash.jpg' },
-  { main: 'Fog', url: 'imgs/paul-pastourmatzis-KT3WlrL_bsg-unsplash.jpg' },
-  { main: 'Sand', url: 'imgs/wolfgang-hasselmann-Fd01B6nNPbo-unsplash.jpg' },
-  { main: 'Ash', url: 'imgs/william-krause-wPsDfkS_noU-unsplash.jpg' },
-  { main: 'Squall', url: 'imgs/khamkeo-vilaysing-WtwSsqwYlA0-unsplash.jpg' },
-  { main: 'Tornado', url: 'imgs/nikolas-noonan-fQM8cbGY6iQ-unsplash.jpg' }
-]
+const conditionsMatch = {
+  Clear: 'imgs/ritam-baishya-ROVBDer29PQ-unsplash.jpg',
+  Clouds: 'imgs/billy-huynh-v9bnfMCyKbg-unsplash.jpg',
+  Thunderstorm: 'imgs/johannes-plenio-ESL1rIs9j48-unsplash.jpg',
+  Drizzle: 'imgs/filip-zrnzevic-_EMkxLdko9k-unsplash.jpg',
+  Rain: 'imgs/roman-synkevych-qPvBmSvmohs-unsplash.jpg',
+  Snow: 'imgs/rye-jessen-GLOJ4NRWAyU-unsplash.jpg',
+  Mist: 'imgs/annie-spratt-7CME6Wlgrdk-unsplash.jpg',
+  Smoke: 'imgs/corina-rainer-jZc5eTXnYLU-unsplash.jpg',
+  Haze: 'imgs/alex-gindin-ifpBOcQlhoY-unsplash.jpg',
+  Dust: 'imgs/jessica-knowlden-Alkq_ht0GVk-unsplash.jpg',
+  Fog: 'imgs/paul-pastourmatzis-KT3WlrL_bsg-unsplash.jpg',
+  Sand: 'imgs/wolfgang-hasselmann-Fd01B6nNPbo-unsplash.jpg',
+  Ash: 'imgs/william-krause-wPsDfkS_noU-unsplash.jpg',
+  Squall: 'imgs/khamkeo-vilaysing-WtwSsqwYlA0-unsplash.jpg',
+  Tornado: 'imgs/nikolas-noonan-fQM8cbGY6iQ-unsplash.jpg'
+}
 
 // Submit Search Form
 DOMElements.enteredCountry.addEventListener('input', function (e) {
