@@ -1,6 +1,6 @@
-import { renderHTML, renderIcons, renderHumidity } from '../dom'
+import { renderHTML, renderIcons, renderHumidity, renderSun } from '../dom'
 import { weatherIcons } from '../requests/weatherIcons'
-import { Thermometer, Sunrise, Sunset, Droplets, Wind, createElement } from 'lucide'
+import { Thermometer, Sunrise, Sunset, Droplets, Wind, Sun, createElement } from 'lucide'
 
 const thermo = createElement(Thermometer)
 const sunSet = createElement(Sunset)
@@ -8,6 +8,7 @@ const sunRise = createElement(Sunrise)
 const droplets = createElement(Droplets)
 const wind = createElement(Wind)
 const wind2 = createElement(Wind)
+const sun = createElement(Sun)
 
 async function weatherTemplate (weatherData, state) {
   console.log(weatherData)
@@ -53,8 +54,9 @@ async function weatherTemplate (weatherData, state) {
       </div>
       <div class='sunInfo'>
         <div class='infoDisplay'>
-          <div class='info noBorder'><div class='sunrise'></div>${sunRiseTime.hour}:${sunRiseTime.minutes}</div>
-          <div class='info noBorder'><div class='sunset'></div>${sunSetTime.hour}:${sunSetTime.minutes}</div>
+          <div class='sunIcon'><div class='sunrise'></div>${sunRiseTime.hour}:${sunRiseTime.minutes}</div>
+          <div class='sunBar'><div class='sunBarPercent'><div class='sunBarIcon'></div></div></div>
+          <div class='sunIcon'><div class='sunset'></div>${sunSetTime.hour}:${sunSetTime.minutes}</div>
         </div>
       </div>
     </div>
@@ -62,8 +64,9 @@ async function weatherTemplate (weatherData, state) {
     </div>
 `
   renderHTML(weatherData, renderTemplateTop)
-  renderIcons(thermo, sunSet, sunRise, droplets, wind, wind2)
+  renderIcons(thermo, sunSet, sunRise, droplets, wind, wind2, sun)
   renderHumidity(weatherData.main.humidity)
+  renderSun(sunRiseTime.hour, sunSetTime.hour, time.hour)
 }
 
 function currentTime (dtIn, timezone) {

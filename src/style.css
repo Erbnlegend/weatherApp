@@ -82,6 +82,32 @@ body {
 .moreInfo, .sunInfo {
   padding: 15px;
 }
+.sunInfo .infoDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+.sunBar {
+  height: 5px;
+  border: 1px solid rgba(235, 230, 230, 0.5);
+  width: 100%;
+}
+.sunBarPercent {
+  display: flex;
+  position: relative;
+  background-color: #ff4500;
+  height: 5px;
+  width: 0%;
+  transition-duration: 2s;
+}
+.sunBarIcon {
+  position: absolute;
+  top: -200%;
+  left: -15%;
+  transition-duration: 2s;
+}
+.sunIcon {
+  text-align: center;
+}
 #feelsLike {
   margin-bottom: 15px;
 }
@@ -94,7 +120,7 @@ body {
 .infoDisplay {
   display: grid;
   grid-template-columns: repeat(2, minmax(150px, 1fr));
-  width: 30%;
+  width: 20%;
 }
 .info {
   display: flex;
@@ -161,4 +187,10 @@ input:focus {
 #error {
   color: white;
   font-weight: bold
+}
+.sunBarPercent .fill {
+  width: 100%;
+}
+.sunBarIcon .rightSun {
+  left: 100%;
 }
