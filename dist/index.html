@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Fancy Weather App</title>
+  <link rel="icon" type="image/x-icon" href="imgs/thermometer-sun.png">
+</head>
+<body>
+  <div class="background">
+    <div id="appendWeatherData"></div>
+    <div id="search">
+      <form id="submitSearch" method="get" action="#" id='appendSubmit'>
+        <input id="enteredCity" type="text" pattern="[\sa-zA-Z]+" required
+        oninvalid="this.setCustomValidity('Only city name, no states included')"
+        oninput="this.setCustomValidity('')"/>
+        <input id="enteredCountry" type="text" min-length='2' max-length='2'
+        oninvalid="this.setCustomValidity('2 letter country abbreviation `US`')"
+        oninput="this.setCustomValidity('')"/>
+        <input id="unit" type="radio">
+        <input id="submitLocation" type="submit" value='Go'>
+      </form>
+      <p id="error"></p>
+    </div>
+    <div id="searchOptions"></div>
+</div>
+</body>
+  <script src="runtime.js"></script>
+  <script src="bundle.js"></script>
+</html>
