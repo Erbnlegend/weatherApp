@@ -7,7 +7,7 @@ import { geoSearch } from './requests/geoSearch'
 
 userLocation()
 
-DOMElements.submitLocation.addEventListener('click', function (e) {
+DOMElements.submitSearch.addEventListener('submit', function (e) {
   e.preventDefault()
   const enteredCity = DOMElements.enteredCity.value
   const enteredCountry = DOMElements.enteredCountry.value

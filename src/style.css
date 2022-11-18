@@ -1,6 +1,5 @@
 body {
   z-index: -2;
-
   margin: 0;
   background-image: url('./assets/rye-jessen-GLOJ4NRWAyU-unsplash.jpg');
   background-attachment: fixed;
@@ -21,30 +20,45 @@ body {
 }
 
 .container {
-  position: fixed;
+  background-color: rgba(2, 2, 2, 0.568);
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0;
+  width: auto;
+  margin: 0 auto;
   color: white;
   padding: 75px;
   font-weight: bold;
 }
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  margin-right: 50px;
 }
 
 /* Main Location Details */
+.time {
+  color: white;
+  font-size: 4rem;
+  padding: 15px;
+}
+.date {
+  color: white;
+  font-size: 2rem;
+  padding: 15px;
+}
+
 .temp {
-  font-size: 4em;
+  font-size: 4rem;
   text-align: center;
 }
 .small {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   text-align: center;
 }
 .location {
   text-align: center;
-  font-size: 2em;
+  font-size: 2rem;
 }
 .icon {
   height: 150px;
@@ -55,38 +69,56 @@ body {
   justify-content: center;
   align-items: center;
   text-align: left;
-  font-size: 1em;
-  width: 100%;
+  font-size: 1rem;
+}
+.weatherIcon {
+  text-align: center;
 }
 
 /* More Information */
-#moreInfo {
+.infoContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  color: white;
-  position: relative;
-  top: 30%;
-  width: 100%;
-  padding: 10px;
 }
-.minMaxTemp {
+.moreInfo, .sunInfo {
+  padding: 15px;
+}
+#feelsLike {
+  margin-bottom: 15px;
+}
+.feels {
+  margin-bottom: 10px;
+}
+.feels span {
+  font-size: 3rem;
+}
+.infoDisplay {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  width: 30%;
+}
+.info {
   display: flex;
-  flex-direction: column;
-  font-size: 2em;
+  align-items: center;
+  margin-bottom: 3px;
+  border-bottom: 1px solid rgba(235, 230, 230, 0.5);
+  padding: 3px 0;
+  margin-right: 5px;
 }
-#humidity {
-  color: white;
-  display: inline-block;
-  text-align: center;
+.noBorder {
+  border: none;
 }
-.minMaxTemp span {
-  padding: 10px;
-  width: 50px;
-  border: 3px solid rgba(0, 0, 0, 0.877);
-  border-radius: 100%;
+#humidityBar {
+  height: 5px;
+  width: 80%;
+  border: 1px solid rgba(235, 230, 230, 0.5);
+  margin-left: 10px;
 }
-
+#humidityPercent {
+  background-color: aqua;
+  height: 5px;
+  width: 0%;
+  transition-duration: 2s;
+}
 
 /* Search Options */
 form {

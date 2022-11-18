@@ -13,7 +13,6 @@ async function geoSearch (position1, position2) {
         })
       const geoData = await response.json()
       searchTemplate(geoData)
-      console.log(geoData)
     } catch (error) {
       console.log(error)
     }
