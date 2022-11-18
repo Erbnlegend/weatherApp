@@ -76,7 +76,7 @@ function renderSun (riseTime, setTime, currentTime) {
       for (let i = 0; i <= 100; i++) {
         setTimeout(() => {
           bar.style.width = `${i}%`
-          barIcon.style.left = `${i - 15}%`
+          barIcon.style.left = `${i - 3}%`
           bar.style.backgroundColor = '#ffffff'
         }, 50)
       }
@@ -90,7 +90,7 @@ function renderSun (riseTime, setTime, currentTime) {
     const percent = (baseLine / difference) * 100
     setTimeout(() => {
       bar.style.width = `${percent}%`
-      barIcon.style.left = `${percent - 3}%`
+      barIcon.style.left = `${percent + 15}%`
     }, 50)
     if (percent >= 100) {
       bar.style.backgroundColor = '#ffffff'
