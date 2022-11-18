@@ -28,14 +28,14 @@ function addCardEvents () {
     })
   })
 }
-
+// Weather Template Calls this
 function renderHTML (weatherData, template) {
   DOMElements.enteredCity.setAttribute('placeholder', weatherData.name)
   DOMElements.enteredCountry.setAttribute('placeholder', weatherData.sys.country)
   const render = document.getElementById('appendWeatherData')
   render.innerHTML = template
 }
-
+// Weather Template Calls this
 function renderIcons (thermo, sunSet, sunRise, droplets, wind, wind2, sun) {
   const highLow = document.querySelector('.thermo')
   const humidity = document.querySelector('.droplets')
@@ -53,6 +53,7 @@ function renderIcons (thermo, sunSet, sunRise, droplets, wind, wind2, sun) {
   sunrise.append(sunRise)
   sunIcon.append(sun)
 }
+// Weather Template Calls this
 function renderHumidity (humidity) {
   const percent = document.getElementById('humidityPercent')
   // Simple Width Transition set in
@@ -62,6 +63,7 @@ function renderHumidity (humidity) {
     }, 50)
   }
 }
+// Weather Template Calls this
 function renderSun (riseTime, setTime, currentTime) {
   const bar = document.querySelector('.sunBarPercent')
   const barIcon = document.querySelector('.sunBarIcon')
@@ -99,12 +101,12 @@ function renderSun (riseTime, setTime, currentTime) {
     }
   }
 }
-
+// Weather Template Calls this
 function updateBackground (temp, condition) {
   const background = document.querySelector('.background')
   background.style.backgroundImage = `url(${conditionsMatch[condition]})`
 }
-
+// Data used by background checker
 const conditionsMatch = {
   Clear: 'imgs/ritam-baishya-ROVBDer29PQ-unsplash.jpg',
   Clouds: 'imgs/billy-huynh-v9bnfMCyKbg-unsplash.jpg',
