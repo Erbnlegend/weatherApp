@@ -7,7 +7,7 @@ async function geoSearch (position1, position2) {
   if (position1 !== '' && position2 === '') {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${position1}&limit=5&APPID=dff09f416b1eecab3a6dac32139cf593`,
+        `https://api.openweathermap.org/geo/1.0/direct?q=${position1}&limit=5&APPID=dff09f416b1eecab3a6dac32139cf593`,
         {
           mode: 'cors'
         })
@@ -21,7 +21,7 @@ async function geoSearch (position1, position2) {
   if (position1 !== '' && position2 !== '') {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${position1},${position2}&limit=5&APPID=dff09f416b1eecab3a6dac32139cf593`,
+        `https://api.openweathermap.org/geo/1.0/direct?q=${position1},${position2}&limit=5&APPID=dff09f416b1eecab3a6dac32139cf593`,
         {
           mode: 'cors'
         })
