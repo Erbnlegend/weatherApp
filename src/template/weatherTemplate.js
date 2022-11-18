@@ -1,4 +1,4 @@
-import { renderHTML, renderIcons, renderHumidity, renderSun } from '../dom'
+import { renderHTML, renderIcons, renderHumidity, renderSun, updateBackground } from '../dom'
 import { weatherIcons } from '../requests/weatherIcons'
 import { Thermometer, Sunrise, Sunset, Droplets, Wind, Sun, createElement } from 'lucide'
 
@@ -67,6 +67,7 @@ async function weatherTemplate (weatherData, state) {
   renderIcons(thermo, sunSet, sunRise, droplets, wind, wind2, sun)
   renderHumidity(weatherData.main.humidity)
   renderSun(sunRiseTime.hour, sunSetTime.hour, time.hour)
+  updateBackground(weatherData.main.temp, weatherData.weather[0].main)
 }
 
 function currentTime (dtIn, timezone) {
